@@ -9,5 +9,9 @@
     "@vue/cli": "^5.0.8",
     "@vue/cli-service-global": "^4.5.19",
     "@vue/devtools": "^6.5.0"
+  },
+  "scripts": {
+    "serve": "vue serve",
+    "build": "vue build"
   }
 }

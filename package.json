@@ -5,13 +5,5 @@
   "repository": "https://github.com/susumutomita/nuxt-tutorial.git",
   "author": "susumu tomita <oyster880@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "@vue/cli": "^5.0.8",
-    "@vue/cli-service-global": "^4.5.19",
-    "@vue/devtools": "^6.5.0"
-  },
-  "scripts": {
-    "serve": "vue serve",
-    "build": "vue build"
-  }
+  "dependencies": {}
 }

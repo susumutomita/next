@@ -10,6 +10,9 @@ COPY package.json yarn.lock ./
 # 依存関係をインストール
 RUN yarn install
 
+# Vue CLIをグローバルにインストール
+RUN yarn global add @vue/cli @vue/cli-service-global @vue/devtools
+
 # アプリケーションのソースコードをコピー
 COPY . .
 

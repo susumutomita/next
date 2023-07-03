@@ -3,23 +3,32 @@
 
 <head>
   <title>My first Vue App</title>
-  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
   <h1>Vue.js</h1>
   <div id="app">
     {{ message }}
+    <hr>
+    <button @click="doAction">Click Me</button>
   </div>
 
   <script>
-    Vue.createApp({
+    const App = {
       data() {
         return {
           message: 'Hello Vue!'
         }
+      },
+      methods: {
+        doAction() {
+          this.message = "You Clicked!!!";
+        }
       }
-    }).mount('#app')
+    }
+
+    Vue.createApp(App).mount('#app')
   </script>
 </body>
 

@@ -7,11 +7,7 @@
 </head>
 
 <body>
-  <h1>Vue.js</h1>
   <div id="app">
-    {{ message * 1.08 + '円'}}
-    <hr>
-    <input type="text" v-on:input="doAction">
   </div>
 
   <script>
@@ -22,9 +18,15 @@
         }
       },
       methods: {
-        doAction(event) {
-          this.message = event.target.value;
+        doAction() {
+          this.message = "Button was clicked!";
         }
+      },
+      render() {
+        return Vue.h('div', {}, [
+          Vue.h('h1', {}, this.message),
+          Vue.h('button', { onClick: this.doAction }, 'Click me!'),
+        ])
       }
     }
 

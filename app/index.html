@@ -14,20 +14,32 @@
     const App = {
       data() {
         return {
-          message: 'please type!',
-          color: 'black'
+          message: 'ボタンを押してください！',
+          color: 'black',
+          isEnglish: false
         }
       },
       methods: {
         doAction() {
-          this.message = "Button was clicked!";
-          this.color = this.color === 'red' ? 'blue' : 'red';
+          if (this.isEnglish) {
+            this.message = "ボタンを押してください！";
+            this.color = 'black';
+            this.isEnglish = false;
+          } else {
+            this.message = "Button was clicked!";
+            this.color = 'red';
+            this.isEnglish = true;
+          }
         }
       },
       render() {
         return Vue.h('div', {}, [
           Vue.h('p', { style: { fontSize: '20pt', color: this.color } }, this.message),
           Vue.h('button', { onClick: this.doAction }, 'Click me!'),
+          Vue.h('div', {}, [
+            Vue.h('h2', {}, 'This is a child node'),
+            Vue.h('p', {}, 'This is another child node')
+          ])
         ])
       }
     }

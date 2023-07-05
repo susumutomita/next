@@ -14,17 +14,19 @@
     const App = {
       data() {
         return {
-          message: 'please type!'
+          message: 'please type!',
+          color: 'black'
         }
       },
       methods: {
         doAction() {
           this.message = "Button was clicked!";
+          this.color = this.color === 'red' ? 'blue' : 'red';
         }
       },
       render() {
         return Vue.h('div', {}, [
-          Vue.h('h1', {}, this.message),
+          Vue.h('p', { style: { fontSize: '20pt', color: this.color } }, this.message),
           Vue.h('button', { onClick: this.doAction }, 'Click me!'),
         ])
       }

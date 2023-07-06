@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My first Vue App</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <h1>Vue.js</h1>
+  <div id="app">
+    <p v-html="messages"></p>
+  </div>
+
+  <script>
+
+    const App = {
+      data() {
+        return {
+          messages: '<h2 style = "color: red;">vue.js sample message</h2>',
+        }
+      }
+    }
+
+    Vue.createApp(App).mount('#app')
+  </script>
+</body>
+
+</html>

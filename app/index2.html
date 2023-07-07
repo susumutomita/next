@@ -10,18 +10,29 @@
   <h1>Vue.js</h1>
   <div id="app">
     <p v-html="messages"></p>
+    <input type="text" v-on:input="doInput">
+    <button v-on:click="doAction">
+      click
+    </button>
   </div>
-
   <script>
 
     const App = {
       data() {
         return {
           messages: '<h2 style = "color: red;">vue.js sample message</h2>',
+          inputText: ''
         }
+      },
+      methods: {
+        doInput(event) {
+          this.inputText = event.target.value;
+        },
+        doAction() {
+          this.messages += '<li>' + this.inputText + '</li>';
+        },
       }
     }
-
     Vue.createApp(App).mount('#app')
   </script>
 </body>

@@ -9,18 +9,26 @@
 <body>
   <h1>Vue.js</h1>
   <div id="app">
-    <p v-html="messages"></p>
+    <ul>
+      <li v-for="message in messages" v-bind:style="style">{{message}}</li>
+    </ul>
     <input type="text" v-on:input="doInput">
     <button v-on:click="doAction">
       click
     </button>
+    <hr>
+    <input type="number" v-on:change="doChange" value="20">
   </div>
   <script>
 
     const App = {
       data() {
         return {
-          messages: '<h2 style = "color: red;">vue.js sample message</h2>',
+          messages: ['vue.js sample message'],
+          style: {
+            fontSize: '20pt',
+            color: 'blue'
+          },
           inputText: ''
         }
       },
@@ -29,8 +37,12 @@
           this.inputText = event.target.value;
         },
         doAction() {
-          this.messages += '<li>' + this.inputText + '</li>';
+          this.messages.push(this.inputText);
         },
+        doChange(event) {
+          this.style.fontSize = event.target.value + 'pt';
+          this.style.color = 'red';
+        }
       }
     }
     Vue.createApp(App).mount('#app')

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My first Vue App</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <style>
+    .red {
+      color: red;
+      font-size: 20pt;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    .blue {
+      color: blue;
+      font-size: 24pt;
+      font-weight: bold;
+      font-style: italic;
+    }
+  </style>
+  <h1>Vue.js</h1>
+  <div id="app">
+    <p v-bind:class="{red:isRed,blue:isBlue}">{{message}}</p>
+    <button v-on:click="doAction">
+      click
+    </button>
+  </div>
+  <hr>
+  <script>
+    const App = {
+      data() {
+        return {
+          message: 'Hello Vue!',
+          isRed: true,
+          isBlue: false
+        }
+      },
+      methods: {
+        doAction() {
+          this.isRed = !this.isRed;
+          this.isBlue = !this.isBlue;
+        },
+      }
+    }
+    Vue.createApp(App).mount('#app')
+  </script>
+</body>
+
+</html>
